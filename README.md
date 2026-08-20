@@ -185,7 +185,7 @@ The command accepts the crop, state, season, irrigation status, weather, soil, n
 The main walkthrough is:
 
 ```text
-notebooks/crop_yield_prediction.ipynb
+notebooks/crop_yield_walkthrough.ipynb
 ```
 
 It covers:
@@ -214,7 +214,7 @@ Crop-Yield-Prediction/
 ├── models/
 │   └── crop_yield_model.joblib
 ├── notebooks/
-│   └── crop_yield_prediction.ipynb.ipynb
+│   └── crop_yield_walkthrough.ipynb
 ├── reports/
 │   ├── evaluation.json
 │   ├── model_comparison.csv
@@ -265,9 +265,7 @@ This project demonstrates:
 
 ## Author
 
-Name: Sunday Babatunde
-Fellow ID: FE/26/2850020886 
-Email: 4peace1@gmail.com
+**Sunday Babatunde Israel**
 
 GitHub: [4peace1](https://github.com/4peace1)
 
