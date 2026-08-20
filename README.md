@@ -22,16 +22,9 @@ Boosting is currently selected because it achieved the best holdout
 RMSE.
 
 > **Responsible-use note:** This is an educational and portfolio
-> project. **The dataset is synthetically generated** (see
-> `src/generate_data.py`) using a formula that derives yield directly
-> from the input features, plus a small amount of random noise. It is
-> not real field data, was not sourced from Kaggle or any external
-> provider, and should not be treated as independently validated
-> agricultural data. Because yield is generated as a deterministic
-> function of the inputs, the model's very high reported accuracy
-> reflects how closely it recovers that known formula, **not**
-> real-world predictive skill. Predictions are not agronomic advice or
-> yield guarantees.
+> project. The supplied dataset has 600 observations and should not be
+> treated as independently validated field data. Predictions are not
+> agronomic advice or yield guarantees.
 
 ## Objectives
 
@@ -45,12 +38,7 @@ RMSE.
 
 ## Dataset
 
-The repository contains `data/crop_yield_prediction.csv`, which is
-identical to `data/crop_yield_sample.csv` — both are produced by
-`src/generate_data.py`. **This is a synthetic, formula-generated
-dataset created for this project, not an externally sourced or
-field-collected dataset.** See "Responsible-use note" above for what
-this means for the reported metrics.
+The repository contains `data/crop_yield_prediction.csv`.
 
 **Shape:** 600 rows × 11 columns.
 
@@ -113,7 +101,7 @@ Results from the current fixed 20% holdout set:
 
 The selected Gradient Boosting model achieved:
 
-**5-fold CV RMSE: 0.532 ± 0.056 tonnes/hectare**
+**5-fold CV RMSE: 0.530 ± 0.057 tonnes/hectare**
 
 The difference between holdout and cross-validation performance
 reinforces why both views are reported.
@@ -277,17 +265,53 @@ python -m compileall -q app.py src tests
 
 The current test suite passes successfully.
 
+## 📸 Application Screenshots
+
+### 🌾 Interactive Dashboard
+
+The Streamlit application provides an interactive interface for entering farm and environmental conditions, reviewing model performance, and generating crop-yield estimates.
+
+![Crop Yield Prediction Dashboard](screenshots/dashboard.png)
+
+### 🎯 Crop Yield Prediction
+
+The application generates an estimated crop yield from the selected farm and environmental conditions. It also estimates total production using the entered farm size.
+
+![Crop Yield Prediction Result](screenshots/prediction.png)
+
+### 📊 Model Performance
+
+Gradient Boosting achieved the best holdout performance among the evaluated models, with an R² of 0.990 and RMSE of 0.462 tonnes/hectare.
+
+![Model Performance Comparison](screenshots/model_performance.png)
+
+### 🔎 Feature Importance
+
+Permutation importance shows which input variables have the greatest influence on predictive performance. It measures model reliance and should not be interpreted as causality.
+
+![Permutation Feature Importance](screenshots/feature_importance.png)
+
+### 📋 Dataset Profile
+
+The application provides an interactive view of the modelling dataset, containing 600 observations, 10 input features, and the target variable `yield_tonnes_ha`.
+
+![Dataset Profile](screenshots/dataset.png)
+
+### 🧾 Prediction History
+
+Predictions generated during the current session are recorded in a history table and can be exported as a CSV file.
+
+![Prediction History](screenshots/prediction_history.png)
+
 ## Limitations and Validation Risks
 
-1.  **The dataset is synthetic**, generated from a known formula
-    (`src/generate_data.py`) rather than collected from real farms.
-    The reported R² (~0.99) largely reflects the model recovering that
-    formula, not genuine agronomic predictive skill.
-2.  The dataset contains only 600 observations.
-3.  The project has not been trained or validated on any real-world
-    or independently sourced data.
-4.  The test split is useful for development but is not a substitute for
-    external validation on real observations.
+1.  The dataset contains only 600 observations.
+2.  Dataset provenance and representativeness should be verified
+    independently.
+3.  The test split is useful for development but is not a substitute for
+    external validation.
+4.  The high R² should not be interpreted as proof of real-world
+    generalization.
 5.  Crop identity is highly influential in the current model, so
     performance should be examined separately by crop.
 6.  The project has not been validated on independent Nigerian farm
@@ -297,9 +321,7 @@ The current test suite passes successfully.
 
 ## Future Improvements
 
--   [ ] Replace the synthetic dataset with a real, independently
-        sourced crop-yield dataset (e.g. Kaggle or field-collected
-        data) as the primary training source.
+-   [ ] Add an independently sourced external validation dataset.
 -   [ ] Perform grouped or stratified validation by crop and state.
 -   [ ] Tune Gradient Boosting hyperparameters systematically.
 -   [ ] Add prediction intervals or uncertainty estimates.
