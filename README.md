@@ -201,7 +201,7 @@ soil, nutrient, and farm-size inputs required by the trained model.
 The main walkthrough is:
 
 ``` text
-notebooks/crop_yield_walkthrough.ipynb
+notebooks/crop_yield_prediction.ipynb
 ```
 
 It covers:
@@ -230,7 +230,7 @@ Crop-Yield-Prediction/
 ├── models/
 │   └── crop_yield_model.joblib
 ├── notebooks/
-│   └── crop_yield_walkthrough.ipynb
+│   └── crop_yield_prediction.ipynb
 ├── reports/
 │   ├── evaluation.json
 │   ├── model_comparison.csv
