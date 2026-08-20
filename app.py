@@ -138,7 +138,7 @@ with st.sidebar:
         step=1.0,
     )
 
-    predict_clicked = st.button("🌱 Predict Yield", type="primary", use_container_width=True)
+    predict_clicked = st.button("🌱 Predict Yield", type="primary", width="stretch")
 
 row = pd.DataFrame([{
     "crop": crop,
@@ -195,7 +195,7 @@ with tab1:
     )
     st.dataframe(
         display.style.format({"MAE": "{:.3f}", "RMSE": "{:.3f}", "R²": "{:.3f}"}),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
     st.caption(
@@ -224,7 +224,7 @@ with tab2:
                 "mae_increase_std": "Std. deviation",
             }
         ).style.format({"MAE increase": "{:.4f}", "Std. deviation": "{:.4f}"}),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -234,13 +234,13 @@ with tab3:
     d1.metric("Rows", f"{len(data):,}")
     d2.metric("Input features", f"{len(NUMERIC_FEATURES) + len(CATEGORICAL_FEATURES)}")
     d3.metric("Target", "yield_tonnes_ha")
-    st.dataframe(data.head(20), use_container_width=True, hide_index=True)
+    st.dataframe(data.head(20), width="stretch", hide_index=True)
 
 if st.session_state.history:
     st.divider()
     st.subheader("🧾 Prediction History")
     history_df = pd.DataFrame(st.session_state.history)
-    st.dataframe(history_df, use_container_width=True, hide_index=True)
+    st.dataframe(history_df, width="stretch", hide_index=True)
     csv = history_df.to_csv(index=False).encode("utf-8")
     st.download_button(
         "⬇️ Download Prediction History",
