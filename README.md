@@ -267,6 +267,12 @@ This project demonstrates:
 
 **Sunday Babatunde Israel**
 
+Name: Sunday Babatunde
+
+Fellow ID: FE/26/2850020886
+
+Email: 4peace1@gmail.com
+
 GitHub: [4peace1](https://github.com/4peace1)
 
 ## License
@@ -276,3 +282,6 @@ This project is licensed under the MIT License. See [`LICENSE`](LICENSE).
 ---
 
 **Capstone project — Crop Yield Prediction using Machine Learning**
+
+abc def ghi jkl mno pqr stu
+abc def ghi jkl mno pqr stu
