@@ -1,0 +1,35 @@
+{
+  "dataset": "crop_yield_prediction.csv",
+  "rows": 600,
+  "features": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "selected_model": "Gradient Boosting",
+  "test_metrics": {
+    "mae": 0.28990636697379507,
+    "rmse": 0.46191661276627227,
+    "r2": 0.9896691648180861
+  },
+  "five_fold_cv_rmse_mean": 0.5304313789934848,
+  "five_fold_cv_rmse_std": 0.05733208222526046,
+  "candidate_models": [
+    {
+      "model": "Gradient Boosting",
+      "mae": 0.28990636697379507,
+      "rmse": 0.46191661276627227,
+      "r2": 0.9896691648180861
+    },
+    {
+      "model": "Random Forest",
+      "mae": 0.33256848794492555,
+      "rmse": 0.5481101444461244,
+      "r2": 0.9854539877389661
+    },
+    {
+      "model": "Ridge Regression",
+      "mae": 0.43315700123994677,
+      "rmse": 0.6636154012525097,
+      "r2": 0.9786773497979474
+    }
+  ]
+}
