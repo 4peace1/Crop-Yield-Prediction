@@ -25,7 +25,7 @@ def main() -> None:
             crop = rng.choice(list(CROPS))
             state = rng.choice(list(STATES))
             season = rng.choice(["wet", "dry"], p=[0.73, 0.27])
-            rainfall = rng.normal(1150 if season == "wet" else 470, 210)
+            rainfall = np.clip(rng.normal(1150 if season == "wet" else 470, 210), 0, 2500)
             temperature = rng.normal(27.0, 2.3)
             soil_ph = np.clip(rng.normal(6.1, 0.65), 4.5, 8.0)
             organic_matter = np.clip(rng.normal(2.5, 0.85), 0.6, 5.8)
